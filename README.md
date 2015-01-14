@@ -5,5 +5,13 @@ Missing UI template helpers for Meteor
 
 This project was inspired by awesome template tags and filters shipped with Django.
 
-1. ```MissingUtility.cleanTags(inputStr)``` removes all HTML tags from a given string
+Template helpers:
+
+1. ```{{stripTags <yourStringWithHTML>}}```. This global template helper removes HTML tags from your string. It's
+possible to provide a second parameter with the list of allowed tags. For instance, ```{{stripTags <yourStringWithHTML> "<strong><p>"}}```
+
+Low-level utilities:
+
+1. ```MissingUtility.cleanTags(yourStringWithHTML)``` removes all HTML tags from a given string. The second parameter
+accepts a string with allowed tags. For instance,  ```MissingUtility.yourStringWithHTML(inputStr, '<strong><p>')```.
 
