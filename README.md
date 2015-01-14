@@ -9,6 +9,7 @@ Template helpers:
 
 1. ```{{stripTags <yourStringWithHTML>}}```. This global template helper removes HTML tags from your string. It's
 possible to provide a second parameter with the list of allowed tags. For instance, ```{{stripTags <yourStringWithHTML> "<strong><p>"}}```
+2. ```{{currentYear}}``` returns a string with the current year. Can be useful for generating a footer with your copyright.
 
 Low-level utilities:
 
