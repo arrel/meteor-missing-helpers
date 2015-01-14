@@ -6,7 +6,7 @@ MissingUtility = {
      * @param {String} allowedTags - Allowed tags (optional)
      * @returns {String}
      *
-     * Returns HTML tags from a given string. It skips the allowed tags
+     * Returns HTML tags from a given string. It skips the allowed tags.
      *
      * Inspired by http://phpjs.org/functions/strip_tags/
      */
@@ -22,5 +22,30 @@ MissingUtility = {
             .replace(tags, function ($0, $1) {
                 return allowedTags.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
             });
+    },
+
+    /**
+     * @method MissingUtility.hasVerifiedEmail
+     * @public
+     * @param {Object} user - Meteor user
+     * @returns {Boolean}
+     *
+     * Determines if a user has verified his email address.
+     */
+    hasVerifiedEmail: function(user) {
+        if (!user)
+            return false;
+
+        // Pick the first unverified address
+        var email = _.find(user.emails || [], function (email) {
+            return !email.verified;
+        });
+
+        var address =  (email || {}).address;
+
+        if (!address)
+            return true;
+        else
+            return false;
     }
 };
