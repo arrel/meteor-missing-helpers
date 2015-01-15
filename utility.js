@@ -6,11 +6,14 @@ MissingUtility = {
      * @param {String} allowedTags - Allowed tags (optional)
      * @returns {String}
      *
-     * Returns HTML tags from a given string. It skips the allowed tags.
+     * Removes HTML tags from a given string. It skips the allowed tags.
      *
      * Inspired by http://phpjs.org/functions/strip_tags/
      */
     stripTags: function(input, allowedTags) {
+        if (!_.isString(input))
+            return '';  // Fail silently
+
         allowedTags = (((allowedTags || '') + '')
             .toLowerCase()
             .match(/<[a-z][a-z0-9]*>/g) || [])
@@ -33,8 +36,8 @@ MissingUtility = {
      * Determines if a user has verified his email address.
      */
     hasVerifiedEmail: function(user) {
-        if (!user)
-            return false;
+        if (!_.isObject(user) || !user)
+            return false;  // Fail silently
 
         // Pick the first unverified address
         var email = _.find(user.emails || [], function (email) {
@@ -47,5 +50,24 @@ MissingUtility = {
             return true;
         else
             return false;
+    },
+
+    /**
+     * @method MissingUtility.truncateChars
+     * @public
+     * @param {String} input - Input string
+     * @param {Number} length - Number of characters to truncate after.
+     * @returns {String}
+     *
+     * Truncates a string after a certain number of characters.
+     */
+    truncateChars: function(input, length) {
+        if (!_.isString(input))
+            return '';   // Fail silently
+
+        if (!_.isFinite(length))
+            return input;  // Fail silently
+
+        return input.substring(0, length);
     }
 };

@@ -47,3 +47,9 @@ Tinytest.add('Missing Helpers - MissingUtility - hasVerifiedEmail', function (te
     if (user)
         Meteor.users.remove();
 });
+
+Tinytest.add('Missing Helpers - MissingUtility - truncateChars', function (test) {
+    test.equal(MissingUtility.truncateChars('ABCDEFG'), 'ABCDEFG');
+    test.equal(MissingUtility.truncateChars('ABCDEFG', 3), 'ABC');
+    test.equal(MissingUtility.truncateChars(10, 2), '');
+});
