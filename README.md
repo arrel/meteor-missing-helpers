@@ -9,7 +9,7 @@ Installation:
 
 ```meteor add msamoylov:missing-helpers```
 
-Template helpers:
+## Template helpers:
 
 1. ```{{stripTags yourStringWithHTML}}```. This global template helper removes HTML tags from your string. It's
 possible to provide a second parameter with the list of allowed tags. For instance, ```{{stripTags yourStringWithHTML "<strong><p>"}}```
@@ -22,11 +22,15 @@ instance, ```{{formatDateTime createdAt "MMM D"}}``` produces "Jan 13", and ```{
 "2015-01-13T23:44:50+02:00"
 5. ```{{timeSince createdAt}}``` returns relative time since a given date. A wrapper for [moment().fromNow()](http://momentjs.com/docs/#/displaying/fromnow/)
 6. ```{{truncateChars yourString length}}``` truncates a string after a certain number of characters.
+7. ```{{{nl2br yourText}}}``` converts all newlines in a piece of plain text to HTML line breaks (<br>). If
+you provide a second parameter as ```true```, it will remove the existing newlines from text.
 
 
-Low-level utilities:
+## Low-level utilities:
 
 1. ```MissingUtility.cleanTags(yourStringWithHTML)``` removes all HTML tags from a given string. The second parameter
 accepts a string with allowed tags. For instance,  ```MissingUtility.cleanTags(yourStringWithHTML, '<strong><p>')```.
 2. ```MissingUtility.hasVerifiedEmail(userObject)``` determines if a user has verified his email address.
 3. ```MissingUtility.truncateChars(yourString, length)``` truncates a string after a certain number of characters.
+4. ```MissingUtility.nl2br(yourText)``` converts all newlines in a piece of plain text to HTML line breaks (<br>). If
+you provide a second parameter as ```true```, it will remove the existing newlines from text.

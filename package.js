@@ -1,7 +1,7 @@
 Package.describe({
   name: 'msamoylov:missing-helpers',
   summary: 'Missing Meteor UI helpers',
-  version: '1.0.5',
+  version: '1.0.6',
   git: 'https://github.com/msamoylov/meteor-missing-helpers.git'
 });
 

@@ -53,3 +53,10 @@ Tinytest.add('Missing Helpers - MissingUtility - truncateChars', function (test)
     test.equal(MissingUtility.truncateChars('ABCDEFG', 3), 'ABC');
     test.equal(MissingUtility.truncateChars(10, 2), '');
 });
+
+Tinytest.add('Missing Helpers - MissingUtility - nl2br', function (test) {
+    test.equal(MissingUtility.nl2br('A\nB\nC\nDEFG', true), {"string": 'A<br>B<br>C<br>DEFG'});
+    test.equal(MissingUtility.nl2br('A\nB\nC\nDEFG'), {"string": 'A<br>\nB<br>\nC<br>\nDEFG'});
+    test.equal(MissingUtility.nl2br('ABC'), {"string": 'ABC'});
+    test.equal(MissingUtility.nl2br(10), {"string": ''});
+});

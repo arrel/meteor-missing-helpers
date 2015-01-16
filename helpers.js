@@ -71,4 +71,14 @@ if (Meteor.isClient) {
     Template.registerHelper('truncateChars', function(input, length) {
         return MissingUtility.truncateChars(input, length);
     });
+
+    /*
+     * @param {String} input - Input string
+     * @returns {String}
+     *
+     * Converts all newlines in a piece of plain text to HTML line breaks (<br>).
+     */
+    Template.registerHelper('linebreaksbr', function(input) {
+        return MissingUtility.nl2br(input);
+    });
 }

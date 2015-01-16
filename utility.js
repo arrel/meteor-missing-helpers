@@ -69,5 +69,24 @@ MissingUtility = {
             return input;  // Fail silently
 
         return input.substring(0, length);
+    },
+
+    /**
+     * @method MissingUtility.nl2br
+     * @public
+     * @param {String} input - Input string
+     * @returns {String}
+     *
+     * Converts all newlines in a piece of plain text to HTML line breaks (<br>).
+     */
+    nl2br: function(input, removeNewLines) {
+        if (!_.isString(input))
+            return Spacebars.SafeString('');   // Fail silently
+
+        var replacement = replacement = '$1' + '<br>';
+        if (!removeNewLines || removeNewLines == undefined)
+            replacement += '$2';
+
+        return new Spacebars.SafeString(input.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replacement));
     }
 };
