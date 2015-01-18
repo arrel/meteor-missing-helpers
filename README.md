@@ -32,5 +32,5 @@ you provide a second parameter as ```true```, it will remove the existing newlin
 accepts a string with allowed tags. For instance,  ```MissingUtility.cleanTags(yourStringWithHTML, '<strong><p>')```.
 2. ```MissingUtility.hasVerifiedEmail(userObject)``` determines if a user has verified his email address.
 3. ```MissingUtility.truncateChars(yourString, length)``` truncates a string after a certain number of characters.
-4. ```MissingUtility.nl2br(yourText)``` converts all newlines in a piece of plain text to HTML line breaks (<br>). If
+4. ```MissingUtility.nl2br(yourText)``` converts all newlines in a piece of plain text to HTML line breaks (```<br>```). If
 you provide a second parameter as ```true```, it will remove the existing newlines from text.
