@@ -22,8 +22,7 @@ instance, ```{{formatDateTime createdAt "MMM D"}}``` produces "Jan 13", and ```{
 "2015-01-13T23:44:50+02:00"
 5. ```{{timeSince createdAt}}``` returns relative time since a given date. A wrapper for [moment().fromNow()](http://momentjs.com/docs/#/displaying/fromnow/)
 6. ```{{truncateChars yourString length}}``` truncates a string after a certain number of characters.
-7. ```{{{nl2br yourText}}}``` converts all newlines in a piece of plain text to HTML line breaks (```<br>```). If
-you provide a second parameter as ```true```, it will remove the existing newlines from text.
+7. ```{{linebreaksbr yourText}}``` converts all newlines in a piece of plain text to HTML line breaks (```<br>```). If you provide a second parameter as ```true```, it will remove the existing newlines from text.
 
 
 ## Low-level utilities:
