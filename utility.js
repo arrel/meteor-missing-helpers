@@ -86,7 +86,8 @@ MissingUtility = {
         var replacement = replacement = '$1' + '<br>';
         if (!removeNewLines || removeNewLines == undefined)
             replacement += '$2';
-
+        
+        input = Blaze._escape(input);
         return new Spacebars.SafeString(input.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, replacement));
     }
 };
